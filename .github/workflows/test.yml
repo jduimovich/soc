@@ -16,6 +16,9 @@ jobs:
     - name: Query from DT
       env:
         DEPENDENCY_TRACK_API_KEY: ${{ secrets.DEP_TRACK_TOKEN }}
-      run: |
-        echo "Fetching vulnerabilities..."
-        curl -H "X-Api-Key: $DEP_TRACK_TOKEN" https://dtapi.northdepot.ca/api/v1/vulnerability/project/e31cecde-9ba5-45ea-816f-7d1d10fb5fe9
+        UUID: e31cecde-9ba5-45ea-816f-7d1d10fb5fe9
+      run: | 
+        API_CALL=https://dtapi.northdepot.ca/api/v1/vulnerability/project/$UUID
+        echo "Fetching vulnerabilities... from $API_CALL"
+        curl -H "X-Api-Key: $DEP_TRACK_TOKEN" "$API_CALL"
+ 
