@@ -17,4 +17,4 @@ jobs:
       run: | 
         API_CALL=https://dtapi.northdepot.ca/api/v1/vulnerability/project/$UUID
         echo "Fetching vulnerabilities... from $API_CALL" 
-        curl -H "X-Api-Key: $DEPENDENCY_TRACK_API_KEY" "$API_CALL"  
+        curl  -s -H "X-Api-Key: $DEPENDENCY_TRACK_API_KEY" "$API_CALL"  
